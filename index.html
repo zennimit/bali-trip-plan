@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Bali Trip — 8 Days, Culture-First</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6ef;
+    --paper: #ffffff;
+    --ink: #1f1a14;
+    --muted: #6b6356;
+    --line: #e8e0d1;
+    --accent: #2f6b4f;
+    --accent-soft: #e6efe7;
+    --warm: #c46a3a;
+    --warm-soft: #fbece1;
+    --gold: #b8893a;
+    --shadow: 0 1px 2px rgba(31,26,20,.04), 0 8px 24px rgba(31,26,20,.06);
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .page {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 18px 120px;
+    background: var(--bg);
+  }
+  .hero {
+    margin: 18px -18px 22px;
+    padding: 28px 22px 26px;
+    background:
+      radial-gradient(120% 80% at 100% 0%, rgba(196,106,58,.12), transparent 60%),
+      radial-gradient(120% 80% at 0% 100%, rgba(47,107,79,.18), transparent 60%),
+      linear-gradient(180deg, #1f3d31, #2f6b4f);
+    color: #f6efe2;
+    border-radius: 0 0 28px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #d8c697;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.05;
+    margin: 0 0 12px;
+    letter-spacing: -.01em;
+  }
+  .hero h1 em { font-style: italic; color: #e8c97f; font-weight: 500; }
+  .hero p {
+    font-size: 14px;
+    color: #e6dfd0;
+    margin: 0;
+    max-width: 36ch;
+  }
+  .hero .meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #f6efe2;
+    padding: 6px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  section { margin: 28px 0; }
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -.01em;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0 0 6px;
+    letter-spacing: -.005em;
+  }
+  p { margin: 0 0 10px; }
+  .muted { color: var(--muted); }
+  small.note { color: var(--muted); font-size: 12.5px; }
+  .shape {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .shape-row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .shape-row:last-child { border-bottom: 0; }
+  .shape-row .day {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    color: var(--accent);
+    font-weight: 600;
+    border-right: 1px dashed var(--line);
+    padding-right: 12px;
+  }
+  .shape-row .place strong { font-weight: 600; font-size: 15px; }
+  .shape-row .place span { color: var(--muted); font-size: 12.5px; }
+  .day-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 18px 16px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .day-img {
+    margin: -18px -18px 14px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-color: #d9d2c2;
+    position: relative;
+  }
+  .day-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.25));
+  }
+  .day-img .caption {
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1;
+    text-shadow: 0 1px 4px rgba(0,0,0,.6);
+    letter-spacing: .02em;
+  }
+  .stay-img {
+    width: 100%;
+    height: 130px;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+  }
+  a.gmap {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(47,107,79,.5);
+    font-weight: 500;
+  }
+  a.gmap::after { content: '↗'; font-size: .75em; margin-left: 2px; opacity: .65; }
+  .stay .gmap { color: inherit; border-bottom-color: rgba(184,137,58,.45); }
+  .stay .name .gmap { color: var(--ink); border-bottom-color: rgba(184,137,58,.55); }
+  .day-route {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--accent);
+    color: #fff !important;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 2px 0 12px;
+    border-bottom: 0;
+    letter-spacing: .01em;
+  }
+  .day-route::before { content: '🗺'; font-size: 11px; }
+  .day-route::after { content: '↗'; margin-left: 1px; opacity: .8; }
+  .day-route:hover { background: #265a42; }
+  .klook-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ff5722;
+    color: #fff !important;
+    padding: 6px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 8px;
+    border-bottom: 0;
+  }
+  .klook-btn::after { content: '→'; }
+  .klook-btn:hover { background: #e64a19; }
+  .day-card .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .day-card h3 { margin-bottom: 4px; }
+  .day-card .sub { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .timeline { list-style: none; padding: 0; margin: 0; }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 10px;
+    padding: 8px 0;
+    border-top: 1px dashed var(--line);
+    font-size: 14px;
+  }
+  .timeline li:first-child { border-top: 0; padding-top: 0; }
+  .timeline .when {
+    color: var(--warm);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .timeline .what em {
+    display: block;
+    color: var(--muted);
+    font-style: normal;
+    font-size: 12.5px;
+    margin-top: 2px;
+  }
+  .stay {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+  }
+  .stay .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .stay .name { font-weight: 600; font-size: 15px; }
+  .stay .price { color: var(--accent); font-weight: 700; font-size: 13px; white-space: nowrap; }
+  .stay .desc { color: var(--muted); font-size: 13px; }
+  .stay.top-pick { border-color: var(--accent); }
+  .stay.top-pick::before {
+    content: '★ Top pick';
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  ul.bullets, ul.checks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.bullets li, ul.checks li {
+    padding: 8px 0 8px 26px;
+    border-top: 1px dashed var(--line);
+    position: relative;
+    font-size: 14px;
+  }
+  ul.bullets li:first-child, ul.checks li:first-child { border-top: 0; }
+  ul.bullets li::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 16px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  ul.checks li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--line);
+    border-radius: 4px;
+    background: #fff;
+  }
+  ul.checks li.skip { color: var(--muted); text-decoration: line-through; }
+  .callout {
+    background: var(--warm-soft);
+    border: 1px solid #f3d9c2;
+    border-left: 4px solid var(--warm);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .callout strong { color: var(--warm); }
+  .callout.green {
+    background: var(--accent-soft);
+    border-color: #cfe1d3;
+    border-left-color: var(--accent);
+  }
+  .callout.green strong { color: var(--accent); }
+  .budget {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .budget .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-top: 1px dashed var(--line);
+    font-size: 14px;
+  }
+  .budget .row:first-child { border-top: 0; }
+  .budget .row.total {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    border-top: 1px solid var(--accent);
+  }
+  footer {
+    margin-top: 30px;
+    padding: 20px 0 8px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  footer .heart { color: var(--warm); }
+  @media (max-width: 380px) {
+    .page { padding: 0 14px 120px; }
+    .hero { margin: 14px -14px 20px; padding: 24px 18px 22px; }
+    .hero h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="page" id="page">
+
+  <header class="hero">
+    <div class="eyebrow">May 2026 · 8 days · Culture-first · v5</div>
+    <h1>Bali, <em>slow</em> &amp; soulful</h1>
+    <p>Two adults, one curious 2.5-year-old. Land at noon, head straight up to the rice valleys. End on the cliffs of Uluwatu before the flight home.</p>
+    <div class="meta">
+      <span class="pill">🎭 Ubud</span>
+      <span class="pill">🌾 Sidemen</span>
+      <span class="pill">🏖️ Jimbaran</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-eyebrow">The shape</div>
+    <h2>Trip at a glance</h2>
+    <div class="shape">
+      <div class="shape-row">
+        <div class="day">Day 1–3</div>
+        <div class="place"><strong>Ubud</strong><span>Land 12 PM, drive up. Swing, monkey forest, Tirta Empul</span></div>
+      </div>
+      <div class="shape-row">
+        <div class="day">Day 4–5</div>
+        <div class="place"><strong>Sidemen</strong><span>Rice valley, weaving, slow days</span></div>
+      </div>
+      <div class="shape-row">
+        <div class="day">Day 6–7</div>
+        <div class="place"><strong>Jimbaran (South Bali)</strong><span>Nusa Dua beach, Uluwatu cliff temple, Kecak</span></div>
+      </div>
+      <div class="shape-row">
+        <div class="day">Day 8</div>
+        <div class="place"><strong>Jimbaran → DPS</strong><span>Pool morning, optional GWK, fly out</span></div>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Why end in the south, not the start?</strong> Landing at noon means you can drive straight up to the cool rice fields of Ubud the same day (1.5 hr). South Bali (Uluwatu, Nusa Dua) is 20 min from the airport — perfect for the last 2 nights so the flight home is a short hop. No Sanur stop needed.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Day by day</div>
+    <h2>The plan</h2>
+
+    <article class="day-card">
+      <div class="day-img" style="background-image:url('img/ubud.jpg')"><span class="caption">Ubud · Wikimedia</span></div>
+      <span class="badge">Day 1 · Arrival</span>
+      <a class="day-route" href="https://www.google.com/maps/dir/?api=1&origin=Ngurah+Rai+International+Airport+DPS&destination=Tegal+Sari+Accommodation+Ubud&travelmode=driving" target="_blank" rel="noopener">Route in Maps</a>
+      <h3>DPS 12 PM → Ubud</h3>
+      <div class="sub">~1.5 hr drive · car seat pre-booked</div>
+      <ul class="timeline">
+        <li><span class="when">12 PM</span><span class="what"><strong>Land at DPS</strong><em>Visa on arrival, bags, car seat ready at meeting point</em></span></li>
+        <li><span class="when">2 PM</span><span class="what"><strong>Arrive Ubud, check in</strong></span></li>
+        <li><span class="when">Late lunch</span><span class="what"><strong>Locavore To-Go or Hujan Locale</strong><em>Both veg-friendly, walking distance from most central stays</em></span></li>
+        <li><span class="when">PM</span><span class="what"><strong>Slow afternoon at homestay pool</strong><em>Don't push — let toddler decompress from the flight</em></span></li>
+        <li><span class="when">Eve</span><span class="what"><strong>Easy dinner, walk to Ubud Palace area</strong><em>Skip if exhausted</em></span></li>
+      </ul>
+    </article>
+
+    <article class="day-card">
+      <div class="day-img" style="background-image:url('img/swing.jpg')"><span class="caption">Bali Swing · Wikimedia</span></div>
+      <span class="badge">Day 2 · Ubud</span>
+      <a class="day-route" href="https://www.google.com/maps/dir/?api=1&origin=Tegal+Sari+Accommodation+Ubud&destination=Puri+Saren+Agung+Ubud+Palace&travelmode=driving&waypoints=Bali+Swing+Bongkasa|Hujan+Locale+Ubud+Bali|Sacred+Monkey+Forest+Sanctuary+Ubud" target="_blank" rel="noopener">Route in Maps</a>
+      <h3>Bali swing &amp; monkey forest</h3>
+      <div class="sub">Photo nests, swings, monkeys</div>
+      <ul class="timeline">
+        <li><span class="when">AM</span><span class="what"><strong>Bali Swing — or Bali Bird Park</strong><em><strong>Bali Swing</strong> (Aloha Ubud / Bongkasa): toddler-friendly photo nests + small swings. Adults can do the big ones (helmet/harness incl). ~₹3,000–4,300 pp · 2–3 hrs incl. drive.<br><br><strong>Or Bali Bird Park</strong> (Singapadu, ~30 min from Ubud): walk-through aviary, daily bird shows, flat shaded paths. Calmer pick if the swing feels like too much. ~₹650–950 pp · 2–3 hrs.</em></span></li>
+        <li><span class="when">Lunch</span><span class="what"><strong>Hujan Locale</strong><em>Modern Indonesian, lots of egg/veg dishes — sambal goreng tempe, nasi campur veg.</em></span></li>
+        <li><span class="when">12–3 PM</span><span class="what"><strong>Nap</strong></span></li>
+        <li><span class="when">PM</span><span class="what"><strong>Sacred Monkey Forest</strong><em>Hold tight to snacks. No earrings/sunglasses on toddler. Carry near big males.</em></span></li>
+        <li><span class="when">7:30 PM</span><span class="what"><strong>Legong dance, Ubud Palace</strong><em>Optional · 1 hr · leave anytime</em></span></li>
+      </ul>
+    </article>
+
+    <article class="day-card">
+      <div class="day-img" style="background-image:url('img/tirta-empul.jpg')"><span class="caption">Melukat at Tirta Empul · Wikimedia</span></div>
+      <span class="badge">Day 3 · Ubud</span>
+      <a class="day-route" href="https://www.google.com/maps/dir/?api=1&origin=Tegal+Sari+Accommodation+Ubud&destination=Sayuri+Healing+Food+Ubud+Bali&travelmode=driving&waypoints=Pura+Tirta+Empul+Tampaksiring+Bali|Tegallalang+Rice+Terrace+Bali|Pura+Taman+Saraswati+Ubud+Bali" target="_blank" rel="noopener">Route in Maps</a>
+      <h3>Tirta Empul &amp; rice terraces</h3>
+      <div class="sub">Holy spring purification, then Tegallalang</div>
+      <ul class="timeline">
+        <li><span class="when">Early AM</span><span class="what"><strong>Drive to Pura Tirta Empul</strong><em>~40 min NE of Ubud. Go at opening (8 AM) before crowds and tour buses.</em></span></li>
+        <li><span class="when">AM</span><span class="what"><strong>Melukat purification ritual</strong><em>The famous holy-spring temple where you wear a green sarong and dip under 13 carved water spouts. Sarongs &amp; lockers rented at entry (~₹50–100). Bring a change of clothes + flip-flops. Toddler can wade at the shallow edge with a parent — water is cool but not freezing.</em></span></li>
+        <li><span class="when">Late AM</span><span class="what"><strong>Tegallalang rice terraces</strong><em>15 min from Tirta Empul. Iconic emerald terraces. Coffee/coconut at Tegal Sari Cafe over the valley.</em></span></li>
+        <li><span class="when">Lunch</span><span class="what"><strong>Back to Ubud · Locavore To-Go or Warung Biah Biah</strong></span></li>
+        <li><span class="when">12–3 PM</span><span class="what"><strong>Nap</strong></span></li>
+        <li><span class="when">PM</span><span class="what"><strong>Ubud market + Pura Taman Saraswati lotus temple</strong><em>Free to wander, beautiful for photos</em></span></li>
+        <li><span class="when">Dinner</span><span class="what"><strong>Sayuri Healing Food or Sawobali</strong><em>Sayuri is fully vegetarian/vegan with eggs available. Sawobali does veg nasi campur in a rice-field setting.</em></span></li>
+      </ul>
+      <div class="callout green">
+        <strong>About the green sarong.</strong> At Tirta Empul, devotees wear a green or white sarong over their clothes for melukat. Sarongs are provided/rented at entry. The ritual: enter the pool, work your way left to right under each of the 13 spouts, hands together, head bowed. Skip the last two (funerary cleansing only).
+      </div>
+    </article>
+
+    <article class="day-card">
+      <div class="day-img" style="background-image:url('img/agung.jpg')"><span class="caption">Mount Agung · Wikimedia</span></div>
+      <span class="badge">Day 4 · Transfer</span>
+      <a class="day-route" href="https://www.google.com/maps/dir/?api=1&origin=Tegal+Sari+Accommodation+Ubud&destination=Wapa+di+Ume+Sidemen+Bali&travelmode=driving&waypoints=Gunung+Kawi+Temple+Tampaksiring" target="_blank" rel="noopener">Route in Maps</a>
+      <h3>Ubud → Sidemen</h3>
+      <div class="sub">~2 hrs · rice fields await</div>
+      <ul class="timeline">
+        <li><span class="when">AM</span><span class="what"><strong>Optional: Gunung Kawi viewpoint</strong><em>Skip the 300 stairs — view from top</em></span></li>
+        <li><span class="when">Lunch</span><span class="what"><strong>Arrive Sidemen</strong></span></li>
+        <li><span class="when">PM</span><span class="what"><strong>Slow afternoon on the verandah</strong><em>Toddler win: rice fields = endless space to run</em></span></li>
+        <li><span class="when">Sunset</span><span class="what"><strong>Mt Agung from your homestay</strong></span></li>
+      </ul>
+    </article>
+
+    <article class="day-card">
+      <div class="day-img" style="background-image:url('img/sidemen.jpg')"><span class="caption">Sidemen Valley · Wikimedia</span></div>
+      <span class="badge">Day 5 · Sidemen</span>
+      <a class="day-route" href="https://www.google.com/maps/dir/?api=1&origin=Wapa+di+Ume+Sidemen+Bali&destination=Wapa+di+Ume+Sidemen+Bali&travelmode=driving&waypoints=Pelangi+Weaving+Sidemen+Bali|Tenganan+Pegringsingan+Village+Bali" target="_blank" rel="noopener">Route in Maps</a>
+      <h3>Culture-light · pick one</h3>
+      <div class="sub">Don't try to do both</div>
+      <div class="callout green">
+        <strong>Option A — Gentle (recommended).</strong> Morning visit to Pelangi Weaving in Sidemen village (10 min). Short rice-paddy walk. Long pool afternoon.
+      </div>
+      <div class="callout">
+        <strong>Option B — Bigger day.</strong> Driver to Tenganan Bali Aga village (~45 min) — pre-Hindu customs, double-ikat weaving. Lunch nearby. Back for nap.
+      </div>
+    </article>
+
+    <article class="day-card">
+      <div class="day-img" style="background-image:url('img/jimbaran.jpg')"><span class="caption">Jimbaran Bay · Wikimedia</span></div>
+      <span class="badge">Day 6 · Transfer</span>
+      <a class="day-route" href="https://www.google.com/maps/dir/?api=1&origin=Wapa+di+Ume+Sidemen+Bali&destination=Movenpick+Resort+Jimbaran+Bali&travelmode=driving&waypoints=Turtle+Conservation+and+Education+Center+Serangan+Bali" target="_blank" rel="noopener">Route in Maps</a>
+      <h3>Sidemen → Jimbaran</h3>
+      <div class="sub">~3 hrs with one stop</div>
+      <ul class="timeline">
+        <li><span class="when">AM</span><span class="what"><strong>Mid-morning drive south</strong></span></li>
+        <li><span class="when">Mid-stop</span><span class="what"><strong>Sanur Turtle Conservation Centre (TCEC)</strong><em>Tiny rescue/hatchery on Serangan island. Donation entry. Toddler can see baby turtles up close; sunset hatchling release ~₹200–400. Worth a 1-hr detour.</em></span></li>
+        <li><span class="when">Late PM</span><span class="what"><strong>Check in at Jimbaran, pool</strong></span></li>
+        <li><span class="when">Sunset</span><span class="what"><strong>Jimbaran Bay seafood grills</strong><em>Most warungs do veg nasi/mie goreng + gado-gado + grilled corn. Tell them <em>"saya vegetarian, boleh telur"</em>.</em></span></li>
+      </ul>
+    </article>
+
+    <article class="day-card">
+      <div class="day-img" style="background-image:url('img/uluwatu.jpg')"><span class="caption">Pura Luhur Uluwatu · Wikimedia</span></div>
+      <span class="badge">Day 7 · South Bali</span>
+      <a class="day-route" href="https://www.google.com/maps/dir/?api=1&origin=Movenpick+Resort+Jimbaran+Bali&destination=Bawang+Merah+Beachfront+Jimbaran+Bali&travelmode=driving&waypoints=Pandawa+Beach+Bali|Pura+Luhur+Uluwatu+Bali" target="_blank" rel="noopener">Route in Maps</a>
+      <h3>Nusa Dua beach + Uluwatu temple</h3>
+      <div class="sub">Calm beach AM, cliff temple PM</div>
+      <ul class="timeline">
+        <li><span class="when">AM</span><span class="what"><strong>Slow start, hotel breakfast, pool</strong></span></li>
+        <li><span class="when">Late AM</span><span class="what"><strong>Drive to Nusa Dua or Pandawa Beach</strong><em>Reef-protected, calm water — perfect for toddler swim</em></span></li>
+        <li><span class="when">12–3 PM</span><span class="what"><strong>Lunch + nap back at hotel</strong></span></li>
+        <li><span class="when">4 PM</span><span class="what"><strong>Drive to Uluwatu Temple</strong><em>11th-century clifftop temple, 70m above ocean. Sarong provided. Watch monkeys — keep tight on toddler.</em></span></li>
+        <li><span class="when">6 PM</span><span class="what"><strong>Kecak fire dance</strong><em>Open-air sunset performance, 1 hr, ends ~7 PM. Iconic. Skip if toddler is tired.</em></span></li>
+        <li><span class="when">Dinner</span><span class="what"><strong>Bawang Merah Beachfront</strong><em>Indonesian veg menu, beach tables, family-friendly</em></span></li>
+      </ul>
+    </article>
+
+    <article class="day-card">
+      <div class="day-img" style="background-image:url('img/jimbaran.jpg')"><span class="caption">Jimbaran Bay · Wikimedia</span></div>
+      <span class="badge">Day 8 · Departure</span>
+      <a class="day-route" href="https://www.google.com/maps/dir/?api=1&origin=Movenpick+Resort+Jimbaran+Bali&destination=Ngurah+Rai+International+Airport+DPS&travelmode=driving&waypoints=Garuda+Wisnu+Kencana+Cultural+Park" target="_blank" rel="noopener">Route in Maps</a>
+      <h3>Jimbaran → DPS</h3>
+      <div class="sub">~30 min to airport · easy morning</div>
+      <ul class="timeline">
+        <li><span class="when">AM</span><span class="what"><strong>Pool, slow breakfast, pack</strong></span></li>
+        <li><span class="when">Late AM</span><span class="what"><strong>Optional: Garuda Wisnu Kencana Cultural Park</strong><em>15 min from Jimbaran. Massive 121m statue of Vishnu on Garuda. Open-air park, dance shows on the half-hour, shaded pavilions. Easy 1.5–2 hr visit if your flight is in the evening. Skip if morning flight.</em></span></li>
+        <li><span class="when">Lunch</span><span class="what"><strong>Hotel or quick warung near GWK</strong></span></li>
+        <li><span class="when">PM</span><span class="what"><strong>Drive to DPS</strong><em>Allow 90 min before international departure</em></span></li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Bookable on Klook</div>
+    <h2>Worth pre-booking</h2>
+    <p class="muted" style="font-size:14px;margin-bottom:14px">Klook tends to be 10–25% cheaper than buying at the gate, includes hotel pickup, and skips the ticket queue. These are filtered for toddler-pace, no-nightlife, no-adventure-sport.</p>
+
+    <div class="stay top-pick">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Bali+Bird+Park+Singapadu" target="_blank" rel="noopener">Bali Bird Park (Singapadu)</a></span><span class="price">₹650–950</span></div>
+      <div class="desc">Walk-through aviary, hundreds of birds, daily bird shows, on the way to Ubud from Jimbaran (~30 min). Toddler-perfect — flat paths, cafés, shade. Great alternative if Bali Swing feels like too much on Day 4.</div>
+      <a class="klook-btn" href="https://www.klook.com/en-IN/search/?query=bali%20bird%20park" target="_blank" rel="noopener">Book on Klook</a>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name">Bali Swing (Aloha or original)</span><span class="price">₹3,000–4,300</span></div>
+      <div class="desc">Already in Day 4. Klook bundle includes transfers, photos, and breakfast. Toddler photo nests at no extra cost.</div>
+      <a class="klook-btn" href="https://www.klook.com/en-IN/search/?query=bali%20swing%20ubud" target="_blank" rel="noopener">Book on Klook</a>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Uluwatu+Temple+Bali" target="_blank" rel="noopener">Uluwatu Temple</a> + Kecak Fire Dance combo</span><span class="price">₹1,300–1,800</span></div>
+      <div class="desc">Skip-the-line Uluwatu entry + reserved Kecak seat at sunset. Avoids the 6 PM ticket scramble. Already in Day 2.</div>
+      <a class="klook-btn" href="https://www.klook.com/en-IN/search/?query=uluwatu%20kecak%20fire%20dance" target="_blank" rel="noopener">Book on Klook</a>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Pura+Tirta+Empul+Tampaksiring+Bali" target="_blank" rel="noopener">Tirta Empul</a> guided melukat</span><span class="price">₹1,500–2,500</span></div>
+      <div class="desc">Local Hindu guide walks you through the green-sarong purification ritual, sarong &amp; locker included. Worth it the first time.</div>
+      <a class="klook-btn" href="https://www.klook.com/en-IN/search/?query=tirta%20empul%20melukat" target="_blank" rel="noopener">Book on Klook</a>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name">eSIM / Bali SIM card</span><span class="price">₹400–800</span></div>
+      <div class="desc">Activates on landing. Way easier than queuing at DPS. 6 GB / 8 days is plenty.</div>
+      <a class="klook-btn" href="https://www.klook.com/en-IN/search/?query=bali%20esim" target="_blank" rel="noopener">Book on Klook</a>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name">DPS airport transfer (with car seat)</span><span class="price">₹1,800–2,800</span></div>
+      <div class="desc">Pre-paid, fixed price, English-speaking driver. Specify "child seat for 2.5y / 13 kg" in notes.</div>
+      <a class="klook-btn" href="https://www.klook.com/en-IN/search/?query=bali%20airport%20transfer%20car%20seat" target="_blank" rel="noopener">Book on Klook</a>
+    </div>
+
+    <div class="callout green" style="margin-top:14px">
+      <strong>Skipping these from Klook (don't fit your trip).</strong> Mt Batur sunrise hike, Nusa Penida day tour, manta ray snorkel, Waterbom Bali, ATV/quad bike, ziplines, river rafting, sunset cocktail cruises, Seminyak nightclub passes.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Where to sleep</div>
+    <h2>Stays shortlist</h2>
+
+    <h3 style="margin: 18px 0 8px; color: var(--accent);">Nusa Dua · 2 nights (Days 6–7) — kid-friendly resorts</h3>
+    <p class="muted" style="font-size:13px;margin:0 0 10px">Nusa Dua's resort strip is purpose-built for families: gated complex, calm reef-protected beach, every property has a kids' club + multiple pools. 25 min from DPS, 20 min from Uluwatu.</p>
+    <div class="stay top-pick">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Bali+Nusa+Dua" target="_blank" rel="noopener">Grand Hyatt Bali</a></span><span class="price">₹17,000–25,000</span></div>
+      <div class="desc">5 pools incl. river-style lagoon + waterslides. Oceania Kids Club (3–12) with crafts, treasure hunts, Balinese workshops. Sprawling 40-acre garden, beachfront. Best toddler-pace pick.</div>
+    </div>
+    <div class="stay top-pick">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Mulia+Resort+Nusa+Dua+Bali" target="_blank" rel="noopener">The Mulia Bali</a></span><span class="price">₹25,000–40,000</span></div>
+      <div class="desc">Mulia Kidz club (3–8), splash pool with giant tipping bucket + slides, complimentary cribs/bath stuff/bottle warmers. Premium beach + breakfast spread is iconic. Splurge but worth it.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Conrad+Bali+Nusa+Dua" target="_blank" rel="noopener">Conrad Bali</a></span><span class="price">₹14,000–22,000</span></div>
+      <div class="desc">278-m lagoon pool snaking through gardens, shallow sand pool for safe splashing, family rooms with cribs. Welcome plush toy. Quieter than Hyatt/Mulia.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Westin+Resort+Nusa+Dua+Bali" target="_blank" rel="noopener">The Westin Resort Nusa Dua</a></span><span class="price">₹17,000–25,000</span></div>
+      <div class="desc">Westin Family club, waterslide, free cribs, connecting rooms. Solid Marriott-points pick.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Sofitel+Bali+Nusa+Dua" target="_blank" rel="noopener">Sofitel Bali Nusa Dua</a></span><span class="price">₹13,000–19,000</span></div>
+      <div class="desc">Bigger rooms, calm pool layout, French-Balinese vibe. Less rowdy kids' scene — good if you want quiet luxury with a toddler.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Courtyard+by+Marriott+Nusa+Dua+Bali" target="_blank" rel="noopener">Courtyard by Marriott Nusa Dua</a></span><span class="price">₹7,000–10,000</span></div>
+      <div class="desc">Best mid-budget Nusa Dua family pick. Family rooms, lagoon pool with kids' area, free shuttle to beach. Smart-points value.</div>
+    </div>
+
+    <h3 style="margin: 26px 0 8px; color: var(--accent);">Or Jimbaran — quieter, fishing-village feel</h3>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Movenpick+Resort+Jimbaran+Bali" target="_blank" rel="noopener">Mövenpick Resort Jimbaran</a></span><span class="price">₹11,000–15,300</span></div>
+      <div class="desc">Mid-range, family rooms, lagoon pool, walk to beach.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=InterContinental+Bali+Resort+Jimbaran" target="_blank" rel="noopener">InterContinental Bali Resort</a></span><span class="price">₹21,000–30,000</span></div>
+      <div class="desc">Beachfront, multiple pools, kids' club, classic family resort.</div>
+    </div>
+
+    <h3 style="margin: 22px 0 8px; color: var(--accent);">Ubud · 3 nights (Days 1–3)</h3>
+    <div class="stay top-pick">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Tegal+Sari+Accommodation+Ubud" target="_blank" rel="noopener">Tegal Sari Accommodation</a></span><span class="price">₹6,800–9,400</span></div>
+      <div class="desc">Rice paddy views, family bungalows, AC, pool. Best balance of culture and ease.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Alaya+Resort+Ubud" target="_blank" rel="noopener">Alaya Resort Ubud</a></span><span class="price">₹11,000–15,300</span></div>
+      <div class="desc">Central, walkable, two pools, family rooms.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Adiwana+Bisma+Ubud" target="_blank" rel="noopener">Adiwana Bisma</a></span><span class="price">₹17,000+</span></div>
+      <div class="desc">Quieter end, valley views, bigger rooms.</div>
+    </div>
+
+    <h3 style="margin: 22px 0 8px; color: var(--accent);">Sidemen · 2 nights (Days 4–5)</h3>
+    <div class="stay top-pick">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Wapa+di+Ume+Sidemen+Bali" target="_blank" rel="noopener">Wapa di Ume Sidemen</a></span><span class="price">₹17,000+</span></div>
+      <div class="desc">Boutique 5-star, infinity pool, family rooms, cribs. Easiest with a toddler.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Subak+Tabola+Villa+Sidemen" target="_blank" rel="noopener">Subak Tabola Villa</a></span><span class="price">₹7,700–11,000</span></div>
+      <div class="desc">Pool villas in rice fields, simple, family-friendly.</div>
+    </div>
+    <div class="stay">
+      <div class="top"><span class="name"><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Darmada+Eco+Resort+Sidemen" target="_blank" rel="noopener">Darmada Eco Resort</a></span><span class="price">₹6,800–9,400</span></div>
+      <div class="desc">Riverside villas, sustainability-focused.</div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Driver &amp; logistics</div>
+    <h2>Getting around</h2>
+    <div class="callout green">
+      <strong>One private driver for the whole trip.</strong> IDR 650–800k/day (~₹3,400–4,200), ~10 hrs incl. fuel. Same driver does transfers + day trips. Tip 10–15%.
+    </div>
+    <ul class="bullets">
+      <li><strong>Airport pickup with car seat</strong> — specify toddler 2.5y / ~13–15kg. Or bring your own.</li>
+      <li><strong>Cash</strong> — ATMs reliable in Ubud + Sanur; carry some backup USD or INR.</li>
+      <li><strong>Visa on arrival</strong> — ~₹3,000 (USD 35); passports valid 6+ months.</li>
+      <li><strong>Travel insurance with medical evacuation</strong> — non-negotiable.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">With a toddler</div>
+    <h2>Doing &amp; skipping</h2>
+    <h3 style="color: var(--accent);">Definitely doing</h3>
+    <ul class="checks">
+      <li>Uluwatu cliff temple (sunset)</li>
+      <li>Nusa Dua / <a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Pandawa+Beach+Bali" target="_blank" rel="noopener">Pandawa Beach</a></li>
+      <li>Bali Swing</li>
+      <li><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Pura+Tirta+Empul+Tampaksiring+Bali" target="_blank" rel="noopener">Tirta Empul</a> melukat (green-sarong purification)</li>
+      <li><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Tegallalang+Rice+Terrace+Bali" target="_blank" rel="noopener">Tegallalang rice terraces</a></li>
+      <li>Ubud Monkey Forest</li>
+      <li>Sidemen rice-field walk + weaving workshop</li>
+    </ul>
+    <h3 style="color: var(--gold); margin-top: 18px;">Maybe — decide on the day</h3>
+    <ul class="checks">
+      <li>Kecak fire dance at Uluwatu (sunset)</li>
+      <li>ARMA Museum, Ubud</li>
+      <li>Legong dance at <a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Puri+Saren+Agung+Ubud+Palace" target="_blank" rel="noopener">Ubud Palace</a></li>
+      <li>Tanah Lot cliff temple (only if extending Day 3)</li>
+      <li><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Tenganan+Pegringsingan+Village+Bali" target="_blank" rel="noopener">Tenganan Bali Aga village</a> day trip</li>
+      <li><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Tirta+Gangga+Water+Palace+Bali" target="_blank" rel="noopener">Tirta Gangga</a> water palace</li>
+      <li><a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Gunung+Kawi+Temple+Tampaksiring" target="_blank" rel="noopener">Gunung Kawi</a> viewpoint</li>
+    </ul>
+    <h3 style="color: var(--muted); margin-top: 18px;">Skipping this trip</h3>
+    <ul class="checks">
+      <li class="skip">Cooking class — dropped per request</li>
+      <li class="skip">Besakih Mother Temple — long, hot, stairs</li>
+      <li class="skip">Mt Batur sunrise hike — 2 AM start</li>
+      <li class="skip">Lempuyang Gates of Heaven — long climb</li>
+      <li class="skip">Munduk waterfalls — winding drive</li>
+      <li class="skip">Kuta / Seminyak nightlife</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Pack list</div>
+    <h2>Toddler kit</h2>
+    <ul class="checks">
+      <li><strong>Car seat</strong> (forward-facing, lightweight)</li>
+      <li>Lightweight stroller (gravel-friendly wheels)</li>
+      <li>Toddler carrier — rice fields, monkey forest, swing parks</li>
+      <li>Sun hat + UV swim shirt + mineral sunscreen</li>
+      <li>Picaridin 10% repellent (DEET-free)</li>
+      <li>Mosquito plug-in for room</li>
+      <li>Reusable water bottle + sippy cup</li>
+      <li>Thermometer + paracetamol + ORS sachets + antihistamine</li>
+      <li>Diapers/pull-ups for travel days (restock locally — Merries / MamyPoko)</li>
+      <li>Familiar snacks for transit</li>
+      <li>Comfort toy + 2–3 books</li>
+      <li>Sticker books / tablet w/ downloaded shows</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Health &amp; safety</div>
+    <h2>Good to know</h2>
+    <ul class="bullets">
+      <li><strong>Hospitals</strong> · Sanur: Bali Royal · Denpasar: Siloam, BIMC Nusa Dua · Ubud: <a class="gmap" href="https://www.google.com/maps/search/?api=1&query=Ubud+Care+Clinic" target="_blank" rel="noopener">Ubud Care Clinic</a>.</li>
+      <li><strong>Pharmacies</strong> · Guardian and Apotek Kimia Farma everywhere.</li>
+      <li><strong>Water</strong> · Bottled only. Brush teeth with bottled.</li>
+      <li><strong>Spice</strong> · Ask <em>"tidak pedas"</em> (not spicy). Safe staples: nasi putih, bubur ayam, mie goreng, banana, papaya, avocado.</li>
+      <li><strong>Sun</strong> · Brutal 11 AM–3 PM. Outdoor before 10 / after 4.</li>
+      <li><strong>Mosquitoes</strong> · Worst at dusk. Long sleeves + repellent.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Budget</div>
+    <h2>Per adult, ex-flights</h2>
+    <div class="budget">
+      <div class="row"><span>Mid-range stays (8 nights)</span><span>₹51,000–77,000</span></div>
+      <div class="row"><span>Driver (transfers + day-uses)</span><span>₹21,000–25,500</span></div>
+      <div class="row"><span>Food</span><span>₹12,800–17,000</span></div>
+      <div class="row"><span>Activities (swing, dances, entries)</span><span>₹10,200–15,300</span></div>
+      <div class="row"><span>Buffer</span><span>₹8,500</span></div>
+      <div class="row total"><span>Total</span><span>~₹1,02,000–1,45,000</span></div>
+    </div>
+    <p style="margin-top:10px"><small class="note">Toddler: ~₹8,500–17,000 extra (most hotels free under 3, food shared, no entry fees). Flights from India: ~₹35,000–55,000 return per adult.</small></p>
+  </section>
+
+  <section>
+    <div class="section-eyebrow">Open questions</div>
+    <h2>Decide soon</h2>
+    <ul class="checks">
+      <li>Lock travel dates</li>
+      <li>South Bali base: Jimbaran (recommended) vs Nusa Dua vs Seminyak?</li>
+      <li>Try Kecak (Day 2) AND Legong (Day 4)? Or pick one?</li>
+      <li>Day 7: Option A (gentle) or Option B (Tenganan)?</li>
+      <li>Tanah Lot included on Day 3 transfer or skipped?</li>
+    </ul>
+  </section>
+
+  <footer>
+    Made with <span class="heart">♥</span> for the Bali trip · v5 · last updated May 2026<br>
+    <small style="font-size:11px">Photos: <a href="https://commons.wikimedia.org/" style="color:var(--muted)">Wikimedia Commons</a> contributors (CC-BY-SA / public domain)</small>
+  </footer>
+</div>
+
+</body>
+</html>
