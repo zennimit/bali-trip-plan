@@ -124,8 +124,8 @@
   }
   .shape-row {
     display: grid;
-    grid-template-columns: 70px 1fr;
-    gap: 12px;
+    grid-template-columns: 96px 1fr;
+    gap: 14px;
     padding: 14px 16px;
     border-bottom: 1px solid var(--line);
     align-items: center;
@@ -133,12 +133,15 @@
   .shape-row:last-child { border-bottom: 0; }
   .shape-row .day {
     font-family: 'Fraunces', Georgia, serif;
-    font-size: 15px;
+    font-size: 14px;
     color: var(--accent);
     font-weight: 600;
     border-right: 1px dashed var(--line);
     padding-right: 12px;
+    line-height: 1.25;
   }
+  .shape-row .day .num { display: block; font-size: 12px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+  .shape-row .place { display: flex; flex-direction: column; gap: 2px; }
   .shape-row .place strong { font-weight: 600; font-size: 15px; }
   .shape-row .place span { color: var(--muted); font-size: 12.5px; }
   .day-card {
@@ -404,19 +407,19 @@
     <h2>Trip at a glance</h2>
     <div class="shape">
       <div class="shape-row">
-        <div class="day">13–16 Jun<br>Day 1–4</div>
+        <div class="day">13–16 Jun<span class="num">Day 1–4</span></div>
         <div class="place"><strong>Ubud</strong><span>Land 12 PM, drive up. Swing, monkey forest, Tirta Empul, slow arts day</span></div>
       </div>
       <div class="shape-row">
-        <div class="day">17–18 Jun<br>Day 5–6</div>
+        <div class="day">17–18 Jun<span class="num">Day 5–6</span></div>
         <div class="place"><strong>Sidemen</strong><span>Rice valley, weaving, slow days</span></div>
       </div>
       <div class="shape-row">
-        <div class="day">19–21 Jun<br>Day 7–9</div>
+        <div class="day">19–21 Jun<span class="num">Day 7–9</span></div>
         <div class="place"><strong>Nusa Dua</strong><span>Resort beach, Uluwatu cliff temple, Kecak, GWK</span></div>
       </div>
       <div class="shape-row">
-        <div class="day">22 Jun<br>Day 10</div>
+        <div class="day">22 Jun<span class="num">Day 10</span></div>
         <div class="place"><strong>Nusa Dua → DPS</strong><span>Easy morning, fly out 12 PM</span></div>
       </div>
     </div>
